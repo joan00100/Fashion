@@ -91,6 +91,80 @@ nav a {
   .product-list {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .product-detail .product-info {
+    padding: 0;
+  }
+}
+
+
+
+/* PRODUCT DETAILS */
+
+#productContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 5%;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.product-detail > img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.product-detail .product-info {
+  padding: 40px 0;
+}
+
+.product-detail .product-info h1 {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+.product-detail .product-info p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.product-detail .product-info .price {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 25px 0;
+}
+
+.product-detail button {
+  width: 100%;
+  padding: 16px 25px;
+  margin-top: 20px;
+
+  background-color: #181818;
+  color: white;
+
+  border: none;
+  cursor: pointer;
+
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-detail button:hover {
+  background-color: #444;
 }
 
 /* Mobil */
@@ -103,9 +177,60 @@ nav a {
 
   nav {
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .product-section {
+    padding: 40px 5%;
+  }
+
+  .product-section h1 {
+    font-size: 30px;
   }
 
   .product-list {
     grid-template-columns: 1fr;
+  }
+
+  #productContainer {
+    padding: 30px 20px;
+  }
+
+  .product-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .product-detail > img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .product-detail .product-info {
+    width: 100%;
+    padding: 0;
+  }
+
+  .product-detail .product-info h1 {
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .product-detail .product-info p {
+    font-size: 14px;
+  }
+
+  .product-detail .product-info .price {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+
+  .product-detail button {
+    width: 100%;
+    padding: 16px;
   }
 }
