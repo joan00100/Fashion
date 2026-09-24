@@ -92,6 +92,10 @@ nav a {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .category-list {
+  grid-template-columns: repeat(2, 1fr);
+}
+
   .product-detail {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -167,6 +171,48 @@ nav a {
   background-color: #444;
 }
 
+/* KATEGORIER */
+
+.category-section {
+  padding: 60px 5%;
+}
+
+.category-section h1 {
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  min-height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #e8e5df;
+
+  color: #181818;
+  text-decoration: none;
+
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  transition: 0.3s;
+}
+
+.category-card:hover {
+  background-color: #181818;
+  color: white;
+}
+
 /* Mobil */
 
 @media (max-width: 600px) {
@@ -184,6 +230,18 @@ nav a {
   .product-section {
     padding: 40px 5%;
   }
+
+  .category-list {
+  grid-template-columns: 1fr;
+}
+
+.category-card {
+  min-height: 150px;
+}
+
+.category-section h1 {
+  font-size: 30px;
+}
 
   .product-section h1 {
     font-size: 30px;
