@@ -60,6 +60,41 @@ nav a {
   object-fit: cover;
 }
 
+/* PRODUKTMÆRKER */
+
+.product-image-link {
+  display: block;
+  position: relative;
+}
+
+.product-labels {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.sale-label {
+  background-color: #d94b38;
+  color: white;
+  padding: 7px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.soldout-label {
+  background-color: #181818;
+  color: white;
+  padding: 7px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .product-info {
   padding-top: 15px;
 }
