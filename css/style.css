@@ -327,3 +327,39 @@ nav a {
     padding: 16px;
   }
 }
+
+/* SORTERINGSKNAPPER */
+
+#sorting {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#sorting button {
+  padding: 10px 16px;
+  border: 1px solid #181818;
+  background-color: transparent;
+  color: #181818;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#sorting button:hover {
+  background-color: #181818;
+  color: white;
+}
+
+/* Mobil */
+
+@media (max-width: 600px) {
+  #sorting {
+    gap: 8px;
+  }
+
+  #sorting button {
+    flex: 1 1 calc(50% - 8px);
+  }
+}

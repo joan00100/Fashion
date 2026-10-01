@@ -1,38 +1,45 @@
+const products = [
+  {
+    id: 1,
+    name: "Classic Shirt",
+    price: 349,
+    category: "Women",
+    image: "img/t-shirtdame.jpg"
+  },
+  {
+    id: 2,
+    name: "Oversized Blazer",
+    price: 999,
+    category: "Women",
+    image: "img/blazer.jpg"
+  },
+  {
+    id: 3,
+    name: "Classic T-shirt",
+    price: 349,
+    category: "Men",
+    image: "img/t-shirtmand.jpg"
+  },
+  {
+    id: 4,
+    name: "Wide Leg Trousers",
+    price: 749,
+    category: "Women",
+    image: "img/widetrousers.jpg"
+  }
+];
+
 const productList = document.querySelector(".product-list");
 
-const category = new URLSearchParams(window.location.search).get("category");
+// Vis produkterne
+function showProducts(productsToShow) {
+  productList.innerHTML = "";
 
-let endpoint = "https://kea-alt-del.dk/t7/api/products";
-
-if (category) {
-  endpoint = `https://kea-alt-del.dk/t7/api/products?category=${encodeURIComponent(category)}`;
-}
-
-const categoryTitle = document.querySelector("#categoryTitle");
-
-if (category && categoryTitle) {
-  categoryTitle.textContent = category;
-}
-
-fetch(endpoint)
-  .then((response) => response.json())
-  .then((data) => showProducts(data));
-
-function showProducts(products) {
-  products.forEach((product) => {
+  productsToShow.forEach((product) => {
     productList.innerHTML += `
       <article class="product-card">
-
-        <a href="productdetails.html?id=${product.id}" class="product-image-link">
-          <img
-            src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp"
-            alt="${product.productdisplayname}"
-          >
-
-          <div class="product-labels">
-            ${product.discount ? '<span class="sale-label">Tilbud</span>' : ""}
-            ${product.soldout ? '<span class="soldout-label">Udsolgt</span>' : ""}
-          </div>
+        <a href="productdetails.html?id=${product.id}">
+          <img src="${product.image}" alt="${product.name}">
         </a>
 
         <div class="product-info">
@@ -40,14 +47,44 @@ function showProducts(products) {
 
           <h2>
             <a href="productdetails.html?id=${product.id}">
-              ${product.productdisplayname}
+              ${product.name}
             </a>
           </h2>
 
           <p class="price">${product.price} kr.</p>
         </div>
-
       </article>
     `;
   });
 }
+
+// Find sorteringsknapperne og tilføj klikfunktion
+document.querySelectorAll("#sorting button").forEach((button) => {
+  button.addEventListener("click", sortProducts);
+});
+
+// Sorter produkterne
+function sortProducts(event) {
+  const value = event.target.textContent;
+
+  let sortedProducts = [...products];
+
+  if (value === "Pris lav-høj") {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  } else if (value === "Pris høj-lav") {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  } else if (value === "A-Z") {
+    sortedProducts.sort((a, b) =>
+      a.name.localeCompare(b.name, "da")
+    );
+  } else if (value === "Z-A") {
+    sortedProducts.sort((a, b) =>
+      b.name.localeCompare(a.name, "da")
+    );
+  }
+
+  showProducts(sortedProducts);
+}
+
+// Vis alle produkter fra starten
+showProducts(products);
